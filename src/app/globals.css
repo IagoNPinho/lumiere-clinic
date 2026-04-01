@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
+/* ── Lumière Clinic — Design Tokens ─────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand palette */
+  --clinica-black:      #0a0a08;
+  --clinica-black-soft: #111110;
+  --clinica-gold:       #c8b48c;
+  --clinica-gold-light: #ddd0b0;
+  --clinica-gold-dark:  #a8916a;
+  --clinica-offwhite:   #f0ebe0;
+  --clinica-offwhite-2: #e8e0d0;
+  --clinica-muted:      #6b6560;
+  --clinica-border:     rgba(200, 180, 140, 0.2);
+  --clinica-border-hover: rgba(200, 180, 140, 0.5);
+
+  /* Semantic */
+  --background:  var(--clinica-black);
+  --foreground:  var(--clinica-offwhite);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--clinica-black);
+  color: var(--clinica-offwhite);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--clinica-black); }
+::-webkit-scrollbar-thumb { background: var(--clinica-gold-dark); border-radius: 2px; }
+
+/* ── Typography helpers ──────────────────────────────────────────────────── */
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.text-gold {
+  color: var(--clinica-gold);
+}
+
+.text-offwhite {
+  color: var(--clinica-offwhite);
+}
+
+.text-muted-clinica {
+  color: var(--clinica-muted);
+}
+
+/* ── Gold border utility ─────────────────────────────────────────────────── */
+.border-gold {
+  border-color: var(--clinica-gold);
+}
+
+.border-gold-subtle {
+  border-color: var(--clinica-border);
+}
+
+/* ── Divider line ────────────────────────────────────────────────────────── */
+.divider-gold {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--clinica-gold), transparent);
+}
+
+/* ── WhatsApp pulse ──────────────────────────────────────────────────────── */
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  50%       { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+}
+.wa-pulse {
+  animation: wa-pulse 2.2s ease-in-out infinite;
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
