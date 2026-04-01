@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/clinica-estetica/Navbar'
 import HeroSection from '@/components/clinica-estetica/HeroSection'
-import StatsBar from '@/components/clinica-estetica/StatsBar'
+import Marquee from '@/components/clinica-estetica/Marquee'
 import SobreSection from '@/components/clinica-estetica/SobreSection'
 import ServicosSection from '@/components/clinica-estetica/ServicosSection'
 import DepoimentosSection from '@/components/clinica-estetica/DepoimentosSection'
@@ -38,7 +38,7 @@ export default function LumierePage() {
     <main>
       <Navbar />
       <HeroSection />
-      <StatsBar />
+      <Marquee />
       <SobreSection />
       <ServicosSection />
       <DepoimentosSection />

@@ -1,33 +1,28 @@
 @import "tailwindcss";
 
-/* ── Lumière Clinic — Design Tokens ─────────────────────────────────────── */
+/* ── Lumière Clinic — Premium Design Tokens ──────────────────────────────── */
 :root {
-  /* Brand palette */
-  --clinica-black:      #0a0a08;
-  --clinica-black-soft: #111110;
-  --clinica-gold:       #c8b48c;
-  --clinica-gold-light: #ddd0b0;
-  --clinica-gold-dark:  #a8916a;
-  --clinica-offwhite:   #f0ebe0;
-  --clinica-offwhite-2: #e8e0d0;
-  --clinica-muted:      #6b6560;
-  --clinica-border:     rgba(200, 180, 140, 0.2);
-  --clinica-border-hover: rgba(200, 180, 140, 0.5);
+  --cream: #F8F4EE;
+  --gold: #C9A96E;
+  --gold-light: #E8D5B0;
+  --gold-muted: rgba(201, 169, 110, 0.15);
+  --dark: #1A1410;
+  --muted: #7A6E64;
+  --rose: #E8C4B8;
+  --rose-deep: #C4846A;
+  --white: #FFFFFF;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
 
-  /* Semantic */
-  --background:  var(--clinica-black);
-  --foreground:  var(--clinica-offwhite);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Legacy compat */
+  --clinica-gold: #C9A96E;
+  --clinica-black: #1A1410;
+  --clinica-border: rgba(201, 169, 110, 0.2);
+  --clinica-border-hover: rgba(201, 169, 110, 0.5);
 }
 
 /* ── Base ────────────────────────────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -36,57 +31,66 @@ html {
 }
 
 body {
-  background-color: var(--clinica-black);
-  color: var(--clinica-offwhite);
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
+  font-family: var(--font-sans);
+  background-color: var(--cream);
+  color: var(--dark);
   overflow-x: hidden;
 }
 
 /* ── Scrollbar ───────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--clinica-black); }
-::-webkit-scrollbar-thumb { background: var(--clinica-gold-dark); border-radius: 2px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-/* ── Typography helpers ──────────────────────────────────────────────────── */
-.font-display {
-  font-family: 'Cormorant Garamond', serif;
+/* ── Keyframes ───────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-.text-gold {
-  color: var(--clinica-gold);
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
 }
 
-.text-offwhite {
-  color: var(--clinica-offwhite);
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
 }
 
-.text-muted-clinica {
-  color: var(--clinica-muted);
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.45; }
+  50%       { transform: scale(1.1); opacity: 0.85; }
 }
 
-/* ── Gold border utility ─────────────────────────────────────────────────── */
-.border-gold {
-  border-color: var(--clinica-gold);
-}
-
-.border-gold-subtle {
-  border-color: var(--clinica-border);
-}
-
-/* ── Divider line ────────────────────────────────────────────────────────── */
-.divider-gold {
-  width: 48px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--clinica-gold), transparent);
-}
-
-/* ── WhatsApp pulse ──────────────────────────────────────────────────────── */
 @keyframes wa-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-  50%       { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  0%, 100% { box-shadow: 0 0 0 0   rgba(37,211,102,0.4); }
+  50%       { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
 }
+
+/* ── Utility classes ─────────────────────────────────────────────────────── */
+
+/* Clip-path para botões em parallelogram */
+.btn-clip {
+  clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+}
+
+/* Linha top animada nos cards (hover) */
+.card-top-line::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--rose-deep));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.card-top-line:hover::before {
+  transform: scaleX(1);
+}
+
+/* WhatsApp float pulse */
 .wa-pulse {
   animation: wa-pulse 2.2s ease-in-out infinite;
 }
@@ -94,7 +98,7 @@ body {
 /* ── Reduced motion ──────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
     transition-duration: 0.01ms !important;
   }
 }

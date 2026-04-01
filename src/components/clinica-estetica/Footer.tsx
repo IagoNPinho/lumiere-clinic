@@ -1,63 +1,65 @@
+'use client'
+
 export default function Footer() {
   return (
     <footer
-      className="py-12 border-t"
+      className="py-10"
       style={{
-        backgroundColor: 'var(--clinica-black)',
-        borderColor: 'var(--clinica-border)',
+        backgroundColor: 'var(--dark)',
+        borderTop: '0.5px solid rgba(201,169,110,0.15)',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+
           {/* Logo */}
           <div className="flex flex-col items-center md:items-start leading-none">
             <span
-              className="text-[20px] tracking-[0.18em] uppercase"
-              style={{ color: 'var(--clinica-gold)', fontFamily: 'var(--font-cormorant)', fontWeight: 400 }}
+              className="text-[1.2rem] tracking-[0.15em] uppercase"
+              style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 300, color: 'var(--white)' }}
             >
-              Lumière
-            </span>
-            <span
-              className="text-[8px] tracking-[0.45em] uppercase"
-              style={{ color: 'var(--clinica-offwhite)', fontFamily: 'var(--font-jost)', fontWeight: 300 }}
-            >
-              Clinic
+              Lumière{' '}
+              <span style={{ color: 'var(--gold)' }}>Clinic</span>
             </span>
           </div>
 
-          {/* Localização */}
+          {/* Horários */}
           <div className="text-center">
             <p
-              className="text-[12px] tracking-wide"
-              style={{ color: 'var(--clinica-muted)', fontFamily: 'var(--font-jost)', fontWeight: 300 }}
+              className="text-[0.72rem] tracking-wide"
+              style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'rgba(255,255,255,0.35)' }}
             >
-              Fortaleza, Ceará · Brasil
-            </p>
-            <p
-              className="text-[11px] tracking-wide mt-1"
-              style={{ color: 'var(--clinica-muted)', fontFamily: 'var(--font-jost)', fontWeight: 300 }}
-            >
-              Seg – Sex: 09h às 18h · Sáb: 09h às 14h
+              Fortaleza, CE · Seg–Sex: 09h–18h · Sáb: 09h–14h
             </p>
           </div>
 
-          {/* Crédito Nexify */}
+          {/* Crédito */}
           <p
-            className="text-[10px] tracking-[0.3em] uppercase"
-            style={{ color: 'var(--clinica-muted)', fontFamily: 'var(--font-jost)', fontWeight: 300 }}
+            className="text-[0.72rem] uppercase tracking-[0.15em]"
+            style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'rgba(255,255,255,0.25)' }}
           >
             Desenvolvido por{' '}
-            <span style={{ color: 'var(--clinica-gold)' }}>Nexify</span>
+            <a
+              href="https://nexify.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-200 cursor-pointer"
+              style={{ color: 'rgba(255,255,255,0.25)' }}
+              onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = 'var(--gold)')}
+              onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.25)')}
+            >
+              Nexify
+            </a>
           </p>
         </div>
 
         <div
-          className="mt-8 pt-6 border-t text-center"
-          style={{ borderColor: 'var(--clinica-border)' }}
+          className="mt-6 pt-5 text-center"
+          style={{ borderTop: '0.5px solid rgba(201,169,110,0.1)' }}
         >
           <p
-            className="text-[10px] tracking-wide"
-            style={{ color: 'var(--clinica-muted)', fontFamily: 'var(--font-jost)', fontWeight: 300 }}
+            className="text-[0.68rem] tracking-wide"
+            style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'rgba(255,255,255,0.2)' }}
           >
             © {new Date().getFullYear()} Lumière Clinic. Todos os direitos reservados. · Política de Privacidade
           </p>

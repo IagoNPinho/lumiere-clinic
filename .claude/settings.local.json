@@ -10,7 +10,8 @@
       "Bash(dir C:\\\\Users\\\\iagop\\\\documents\\\\nexify\\\\projetos\\\\landing-pages\\\\lumiere-clinic:*)",
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --yes)",
       "Bash(npm install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(py .claude/skills/ui-ux-pro-max/scripts/search.py \"luxury premium clinic editorial light cream gold framer motion\" --design-system -p \"Lumiere Premium Upgrade\" -f markdown)"
     ]
   }
 }
