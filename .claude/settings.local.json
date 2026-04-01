@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/iagop/documents/nexify/projetos/**)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"luxury aesthetic clinic premium dark editorial elegant\" --design-system -p \"Lumière Clinic\" -f markdown)",
+      "Bash(py --version)",
+      "Bash(py .claude/skills/ui-ux-pro-max/scripts/search.py \"luxury aesthetic clinic premium dark editorial elegant\" --design-system -p \"Lumière Clinic\" -f markdown)",
+      "Bash(py .claude/skills/ui-ux-pro-max/scripts/search.py \"luxury clinic dark editorial\" --domain landing -n 3)",
+      "Bash(py .claude/skills/ui-ux-pro-max/scripts/search.py \"gsap scroll animation premium\" --domain ux -n 3)",
+      "Bash(dir C:\\\\Users\\\\iagop\\\\documents\\\\nexify\\\\projetos\\\\landing-pages\\\\lumiere-clinic:*)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --yes)"
+    ]
+  }
+}
